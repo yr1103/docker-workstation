@@ -299,6 +299,7 @@ CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK
 docker run -it ubuntu bash
 ```
 
+결과:
 ```bash
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
@@ -314,7 +315,7 @@ ls
 echo "inside container"
 exit
 ```
-
+결과:
 ```bash
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 
@@ -339,6 +340,8 @@ Dockerfile
 FROM nginx:alpine
 COPY site/ /usr/share/nginx/html/
 ```
+
+
 ```bash
 
 cd ~/docker-practice

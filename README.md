@@ -334,29 +334,58 @@ exit
 ```bash
 mkdir -p ~/docker-practice/site
 cd ~/docker-practice
-index.html
-echo "<h1>Hello Docker</h1>" > site/index.html
-Dockerfile
-FROM nginx:alpine
-COPY site/ /usr/share/nginx/html/
 ```
-
-
+결과:
 ```bash
-
-cd ~/docker-practice
-index.html
-echo "<h1>Hello Docker</h1>" > site/index.html
-Dockerfile
-FROM nginx:alpine
-COPY site/ /usr/share/nginx/html/
+## 디렉토리 생성 및 이동 확인
+youngrae11032045@c4r6s1 docker-practice %
 ```
 
+index.html
+```bash
+echo "<h1>Hello Docker</h1>" > site/index.html
+cat site/index.html
+```
+
+결과
+```bash
+<h1>Hello Docker</h1>
+```
+
+
+Dockerfile
+```bash
+## touch Dockerfile (생성)
+## nano Dockerfile (편집기 열기)
+
+FROM nginx:alpine
+COPY site/ /usr/share/nginx/html/
+
+## 저장 후 종료 ctrl o , enter, ctrl x
+```
 
 빌드
 ```bash
 docker build -t my-web .
 ```
+결과
+```bash
+[+] Building 1.9s (2/2) FINISHED                                                                                                                                  docker:orbstack
+ => [internal] load build definition from Dockerfile                                                                                                                         0.2s
+ => => transferring dockerfile: 89B                                                                                                                                          0.0s
+ => ERROR [internal] load metadata for docker.io/library/nginx:alpine                                                                                                        1.4s
+------
+ > [internal] load metadata for docker.io/library/nginx:alpine:
+------
+Dockerfile:1
+--------------------
+   1 | >>> FROM nginx:alpine
+   2 |     COPY site/ /usr/share/nginx/html/
+   3 |     
+--------------------
+ERROR: failed to build: failed to solve: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Alibrary%2Fnginx%3Apull&service=registry.docker.io": dial tcp: lookup auth.docker.io: no such host
+```
+
 
 실행
 ```bash

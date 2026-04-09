@@ -25,25 +25,25 @@ git version 2.53.0
 
 ## 3. 수행 체크리스트
 
-[o] 터미널 기본 조작  
+[x] 터미널 기본 조작  
 
-[o] 권한 변경 실습  
+[x] 권한 변경 실습  
 
-[o] Docker 설치/점검  
+[x] Docker 설치/점검  
 
-[o] 컨테이너 실행  
+[x] 컨테이너 실행  
 
-[o] Docker 기본 명령 실행  
+[x] Docker 기본 명령 실행  
 
-[o] Dockerfile 작성 및 실행
+[x] Dockerfile 작성 및 실행
 
-[o] 포트 매핑   
+[x] 포트 매핑   
 
-[o] 바인드 마운트
+[x] 바인드 마운트
 
-[o] 볼륨 영속성
+[x] 볼륨 영속성
 
-[o] Git/GitHub 연동
+[x] Git/GitHub 연동
 
 ---
 

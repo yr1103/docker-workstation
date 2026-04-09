@@ -290,7 +290,6 @@ For more examples and ideas, visit:
 ## docker stats (실행 중인 컨테이너 없음)
 CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS 
  
-
 ```
 ---
 
@@ -300,6 +299,13 @@ CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK
 docker run -it ubuntu bash
 ```
 
+```bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+689b91d88a0f: Pull complete 
+Digest: sha256:84e77dee7d1bc93fb029a45e3c6cb9d8aa4831ccfcc7103d36e876938d28895b
+Status: Downloaded newer image for ubuntu:latest
+```
 
 컨테이너 내부:
 
@@ -308,6 +314,22 @@ ls
 echo "inside container"
 exit
 ```
+
+```bash
+ls
+echo "inside container"
+exit
+```
+
+```bash
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+##echo "inside container"
+inside container
+##exit
+exit
+```
+
 
 ---
 
@@ -323,6 +345,16 @@ Dockerfile
 FROM nginx:alpine
 COPY site/ /usr/share/nginx/html/
 ```
+```bash
+
+cd ~/docker-practice
+index.html
+echo "<h1>Hello Docker</h1>" > site/index.html
+Dockerfile
+FROM nginx:alpine
+COPY site/ /usr/share/nginx/html/
+```
+
 
 빌드
 ```bash

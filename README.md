@@ -559,3 +559,48 @@ Docker 설치 확인: docker --version, docker info
 볼륨 영속성 확인: 컨테이너 삭제 전/후 데이터 비교
 Git 설정 확인: git config --list
 GitHub 연동 확인: push 및 저장소 확인
+
+## 15. 개념 및 설계 설명
+
+---
+
+## 15. 개념 및 설계 설명
+
+### 1) 프로젝트 디렉토리 구조 설계
+
+- `docker-practice/`
+  - `site/` → 웹 서버에서 사용할 HTML 파일
+  - `Dockerfile` → 이미지 빌드 정의
+
+설계 기준:
+- 웹 리소스와 Docker 설정을 분리하여 관리
+- Dockerfile 기준 상대 경로 COPY를 사용하기 위해 동일 디렉토리에 배치
+
+---
+
+### 2) 포트 매핑과 볼륨 재현 방식
+
+- 포트 매핑:
+```bash
+docker run -d -p 8080:80 my-web
+```
+설명:
+
+-컨테이너 내부 80번 포트를 호스트 8080번 포트로 연결
+-브라우저에서 localhost:8080으로 접근 가능
+
+바인드 마운트:
+```bash
+-v $(pwd)/site:/usr/share/nginx/html
+```
+
+설명:
+-호스트 파일 변경 시 컨테이너에 즉시 반영
+-개발 환경에서 실시간 수정 가능
+
+```bash
+docker volume create mydata
+```
+설명:
+-컨테이너 삭제 후에도 데이터 유지
+-영속성 보장

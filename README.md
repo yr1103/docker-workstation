@@ -303,15 +303,18 @@ docker run -it ubuntu bash
 
 컨테이너 내부:
 
+```bash
 ls
 echo "inside container"
 exit
+```
 
 ---
 
 ## 8. Dockerfile 기반 웹 서버
 
 디렉토리 생성
+```bash
 mkdir -p ~/docker-practice/site
 cd ~/docker-practice
 index.html
@@ -319,26 +322,38 @@ echo "<h1>Hello Docker</h1>" > site/index.html
 Dockerfile
 FROM nginx:alpine
 COPY site/ /usr/share/nginx/html/
+```
 
 빌드
+```bash
 docker build -t my-web .
+```
 
 실행
+```bash
 docker run -d -p 8080:80 --name my-web-container my-web
+```
+
 
 ---
 
 ## 9. 포트 매핑 검증
+
+```bash
 curl http://localhost:8080
+```
 
 결과:
 
+```bash
 Hello Docker
+```
 
 또는 브라우저 접속:
 
+```bash
 http://localhost:8080
-
+```
 ---
 
 ## 10. 바인드 마운트

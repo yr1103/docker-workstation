@@ -34,7 +34,9 @@ git version 2.43.0
 [o] Git/GitHub 연동
 
 ## 4. 터미널 조작 로그
+
 기본 명령
+```bash
 pwd
 ls -la
 mkdir test-dir
@@ -42,9 +44,13 @@ cd test-dir
 touch test.txt
 echo "hello" > test.txt
 cat test.txt
+```
 
 결과:
+```bash
+/mnt/c/Windows/system32
 
+```
 
 
 권한 변경

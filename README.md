@@ -94,26 +94,38 @@ ls -l test.txt
 ```
 
 ## 5. Docker 설치 및 점검
+
+```bash
 docker --version
 docker info
+```
 
 결과:
-
-(출력 복붙)
+```bash
+```
 
 ## 6. Docker 기본 운영 명령
+
+```bash
 docker run hello-world
 docker images
 docker ps -a
 docker logs <컨테이너ID>
 docker stats
+```
 
 결과:
-
+```bash
 (출력 복붙)
+```
+
 
 ## 7. 컨테이너 실행
+
+```bash
 docker run -it ubuntu bash
+```
+
 
 컨테이너 내부:
 

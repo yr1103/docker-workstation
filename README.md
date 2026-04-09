@@ -3,19 +3,20 @@
 ---
 
 ## 1. 프로젝트 개요
-- WSL2(Ubuntu) 기반 Docker 개발 환경 구축
+- macOS(OrbStack) 기반 Docker 개발 환경 구축
 - 컨테이너 실행, Dockerfile 빌드, 포트 매핑, 볼륨 및 Git 연동까지 수행
 
 ---
 
 ## 2. 실행 환경
 
+- OS: macOS 
+- Terminal: macOS Terminal (OrbStack)
+
 ```bash
 docker --version
 git --version
 ```
-결과:
-
 ```text
 Docker version 28.5.2, build ecc6942
 git version 2.53.0
@@ -442,11 +443,21 @@ nginx:alpine
 변경 전
 curl http://localhost:8081
 
+결과
+<h1>Hello Docker</h1>
+
 파일 수정
 echo "<h1>Changed</h1>" > site/index.html
+cat site/index.html
+
+결과
+<h1>Changed</h1>
 
 변경 후
 curl http://localhost:8081
+
+결과
+<h1>Changed</h1>
 
 ---
 
@@ -458,6 +469,9 @@ docker run -d --name vol-test -v mydata:/data ubuntu sleep infinity
 docker exec vol-test bash -c "echo hello > /data/file.txt"
 docker exec vol-test cat /data/file.txt
 
+결과
+hello
+
 컨테이너 삭제
 docker rm -f vol-test
 
@@ -466,46 +480,46 @@ docker run -d --name vol-test2 -v mydata:/data ubuntu sleep infinity
 docker exec vol-test2 cat /data/file.txt
 
 결과:
-
 hello
 
 ---
 
-## 12. Git 설정
+## 12. Git 설정 및 Github 연
 git config --global user.name "yourname"
-git config --global user.email "you@example.com"
+git config --global user.email "your@email.com"
 git config --list
 
 결과:
 
 credential.helper=osxkeychain
-user.name=youngrae
-user.email=you@example.com
+user.name=yourname
+user.email=your@email.com
 
 ---
 
 ## 13. 트러블슈팅
 
-문제 1: WSL에서 docker 실행 오류
-
-문제: docker-desktop 환경에서 docker 실행 시 오류 발생
-
-원인: docker-desktop은 내부용 WSL
-
-해결: Ubuntu WSL에서 실행
+문제 1: Docker Hub 이미지 다운로드 실패
+문제: docker build 실행 시 lookup auth.docker.io: no such host 오류 발생
+원인 가설: DNS 또는 네트워크 문제로 Docker Hub 접근 실패
+확인: docker pull nginx:alpine 실행 시 동일 오류 발생 확인
+해결/대안: 네트워크 재연결 및 Docker 재시작 후 정상 동작
 
 문제 2: docker build 실패
+문제: docker build -t my-web 실행 시 오류 발생
+원인 가설: build context(.)를 지정하지 않아 Dockerfile 위치 인식 실패
+확인: 에러 메시지에서 argument 부족 확인
+해결/대안: docker build -t my-web .로 수정하여 해결
 
-문제: docker build 실행 시 에러 발생
-
-원인: build 경로 지정 안 함
-
-해결: docker build -t my-web . 로 수정
 
 ## 14. 검증 방법
 
-docker 명령 실행 결과 확인
-
-curl로 포트 접속 확인
-
-볼륨 데이터 유지 확인
+Docker 설치 확인: docker --version, docker info
+컨테이너/이미지 상태 확인: docker images, docker ps -a
+로그 확인: docker logs
+리소스 확인: docker stats --no-stream
+포트 매핑 확인: curl http://localhost:8080
+바인드 마운트 확인: 파일 수정 전/후 비교
+볼륨 영속성 확인: 컨테이너 삭제 전/후 데이터 비교
+Git 설정 확인: git config --list
+GitHub 연동 확인: push 및 저장소 확인

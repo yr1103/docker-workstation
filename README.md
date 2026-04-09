@@ -316,12 +316,6 @@ exit
 ```
 
 ```bash
-ls
-echo "inside container"
-exit
-```
-
-```bash
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 
 ##echo "inside container"

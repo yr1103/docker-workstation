@@ -229,7 +229,7 @@ WARNING: DOCKER_INSECURE_NO_IPTABLES_RAW is set
 docker run hello-world
 docker images
 docker ps -a
-docker logs <컨테이너ID>
+docker logs <CONTAINER ID>
 docker stats
 ```
 

@@ -370,20 +370,40 @@ docker build -t my-web .
 ```
 결과
 ```bash
-[+] Building 1.9s (2/2) FINISHED                                                                                                                                  docker:orbstack
- => [internal] load build definition from Dockerfile                                                                                                                         0.2s
+[+] Building 7.0s (7/7) FINISHED                                                                                                                                  docker:orbstack
+ => [internal] load build definition from Dockerfile                                                                                                                         0.1s
  => => transferring dockerfile: 89B                                                                                                                                          0.0s
- => ERROR [internal] load metadata for docker.io/library/nginx:alpine                                                                                                        1.4s
-------
- > [internal] load metadata for docker.io/library/nginx:alpine:
-------
-Dockerfile:1
---------------------
-   1 | >>> FROM nginx:alpine
-   2 |     COPY site/ /usr/share/nginx/html/
-   3 |     
---------------------
-ERROR: failed to build: failed to solve: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Alibrary%2Fnginx%3Apull&service=registry.docker.io": dial tcp: lookup auth.docker.io: no such host
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                              2.2s
+ => [internal] load .dockerignore                                                                                                                                            0.1s
+ => => transferring context: 2B                                                                                                                                              0.0s
+ => [1/2] FROM docker.io/library/nginx:alpine@sha256:645eda1c2477aaa9b879f73909b9222c6f19798dd45be6706268d82a661c6e6d                                                        3.8s
+ => => resolve docker.io/library/nginx:alpine@sha256:645eda1c2477aaa9b879f73909b9222c6f19798dd45be6706268d82a661c6e6d                                                        0.2s
+ => => sha256:645eda1c2477aaa9b879f73909b9222c6f19798dd45be6706268d82a661c6e6d 10.33kB / 10.33kB                                                                             0.0s
+ => => sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 3.86MB / 3.86MB                                                                               0.6s
+ => => sha256:c1263cc56873d66f381fd07149aa0dc7244dd7c941334cd18473c46509f08465 2.50kB / 2.50kB                                                                               0.0s
+ => => sha256:5bd7bd52e5bcab15a093466b90e37472b0d0c0081052522afb8924cbdaf15f56 12.32kB / 12.32kB                                                                             0.0s
+ => => sha256:f03becc8ac15611cfcc421c977a5ba4d65456093570788523a4ba557689aa7f7 1.87MB / 1.87MB                                                                               0.9s
+ => => sha256:15e759724ff67f262e38bb7c070af9d0b84f959f9b37fa966f68bf2f881a4b62 627B / 627B                                                                                   0.7s
+ => => extracting sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153                                                                                    0.1s
+ => => sha256:ff9f59a6a62e9e9f29d7a84fb18865b45664d3f0d061eff7548bd61746dd101c 957B / 957B                                                                                   1.1s
+ => => sha256:a71873b303e8d75170b7ced2725b01b3ae15ad76f0d4eef16a49335821b6a0ef 404B / 404B                                                                                   1.3s
+ => => extracting sha256:f03becc8ac15611cfcc421c977a5ba4d65456093570788523a4ba557689aa7f7                                                                                    0.1s
+ => => sha256:34dfdd2ef1f920d0054dde2fc09ddc83ff8e71d05fadb79e2cab6e6234596f0a 1.21kB / 1.21kB                                                                               1.4s
+ => => sha256:c8a2fa3a88d244a3f32dcbc9c1f7649c662661a28c624198ada43aa0b7598e7f 1.40kB / 1.40kB                                                                               1.6s
+ => => extracting sha256:15e759724ff67f262e38bb7c070af9d0b84f959f9b37fa966f68bf2f881a4b62                                                                                    0.0s
+ => => extracting sha256:ff9f59a6a62e9e9f29d7a84fb18865b45664d3f0d061eff7548bd61746dd101c                                                                                    0.0s
+ => => sha256:1165b869c51a1a0747d78cec8fab96c30156a979e51ecf2f91aa792e557d94a4 20.25MB / 20.25MB                                                                             2.2s
+ => => extracting sha256:a71873b303e8d75170b7ced2725b01b3ae15ad76f0d4eef16a49335821b6a0ef                                                                                    0.0s
+ => => extracting sha256:34dfdd2ef1f920d0054dde2fc09ddc83ff8e71d05fadb79e2cab6e6234596f0a                                                                                    0.0s
+ => => extracting sha256:c8a2fa3a88d244a3f32dcbc9c1f7649c662661a28c624198ada43aa0b7598e7f                                                                                    0.0s
+ => => extracting sha256:1165b869c51a1a0747d78cec8fab96c30156a979e51ecf2f91aa792e557d94a4                                                                                    0.4s
+ => [internal] load build context                                                                                                                                            0.3s
+ => => transferring context: 92B                                                                                                                                             0.0s
+ => [2/2] COPY site/ /usr/share/nginx/html/                                                                                                                                  0.2s
+ => exporting to image                                                                                                                                                       0.2s
+ => => exporting layers                                                                                                                                                      0.1s
+ => => writing image sha256:f86bbe94d263a95eabed4675c32a20186069d0ec075dbc884190485aab95991f                                                                                 0.0s
+ => => naming to docker.io/library/my-web                                                                                                                                    0.0s
 ```
 
 
@@ -392,6 +412,10 @@ ERROR: failed to build: failed to solve: failed to fetch anonymous token: Get "h
 docker run -d -p 8080:80 --name my-web-container my-web
 ```
 
+결과
+```bash
+678ec3ac72d907d5f08b149cf98272a9be488d58001e52e30389b0b6254405be
+```
 
 ---
 

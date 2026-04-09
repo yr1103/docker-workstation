@@ -17,8 +17,8 @@ git --version
 결과:
 
 ```text
-Docker version 29.3.1, build c2be9cc
-git version 2.43.0
+Docker version 28.5.2, build ecc6942
+git version 2.53.0
 ```
 
 ## 3. 수행 체크리스트
@@ -48,19 +48,50 @@ cat test.txt
 
 결과:
 ```bash
-/mnt/c/Windows/system32
+/Users/youngrae11032045
+total 16
+drwxr-x---+ 20 youngrae11032045  youngrae11032045   640  4  9 15:24 .
+drwxr-xr-x  13 root              admin              416  4  9 14:45 ..
+-r--------   1 youngrae11032045  youngrae11032045     8  4  9 14:45 .CFUserTextEncoding
+drwxr-xr-x   5 youngrae11032045  youngrae11032045   160  4  9 14:45 .docker
+drwxr-xr-x  10 youngrae11032045  youngrae11032045   320  4  9 14:45 .orbstack
+drwxr-xr-x   3 youngrae11032045  youngrae11032045    96  4  9 14:45 .ssh
+drwx------+  2 youngrae11032045  youngrae11032045    64  4  9 14:45 .Trash
+drwxr-xr-x   3 youngrae11032045  youngrae11032045    96  4  9 14:46 .vscode
+-rw-------   1 youngrae11032045  youngrae11032045   275  4  9 15:24 .zsh_history
+drwx------   6 youngrae11032045  youngrae11032045   192  4  9 15:24 .zsh_sessions
+drwx------+  3 youngrae11032045  youngrae11032045    96  4  9 14:45 Desktop
+drwx------+  3 youngrae11032045  youngrae11032045    96  4  9 14:45 Documents
+drwx------+  3 youngrae11032045  youngrae11032045    96  4  9 14:45 Downloads
+drwx------@ 78 youngrae11032045  youngrae11032045  2496  4  9 15:01 Library
+drwx------   3 youngrae11032045  youngrae11032045    96  4  9 14:45 Movies
+drwx------+  3 youngrae11032045  youngrae11032045    96  4  9 14:45 Music
+drwx------   4 youngrae11032045  youngrae11032045   160  4  9 14:45 OrbStack
+drwx------+  4 youngrae11032045  youngrae11032045   128  4  9 14:45 Pictures
+drwxr-xr-x+  4 youngrae11032045  youngrae11032045   128  4  9 14:45 Public
+-rwxr-xr-x   1 youngrae11032045  youngrae11032045     0  4  9 15:19 test.txt
 
+## test.dir 생성
+## test.txt 생성
+total 8
+drwxr-xr-x   3 youngrae11032045  youngrae11032045   96  4  9 15:53 .
+drwxr-x---+ 21 youngrae11032045  youngrae11032045  672  4  9 15:53 ..
+-rw-r--r--   1 youngrae11032045  youngrae11032045    6  4  9 15:53 test.txt
+## cat test.txt 
+hello
 ```
 
-
 권한 변경
+```bash
 ls -l test.txt
 chmod 755 test.txt
 ls -l test.txt
+```
 
 결과:
-
+```bash
 (변경 전/후 비교 결과)
+```
 
 ## 5. Docker 설치 및 점검
 docker --version

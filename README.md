@@ -432,68 +432,104 @@ curl http://localhost:8080
 <h1>Hello Docker</h1>
 ```
 
+
 ---
 
 ## 10. 바인드 마운트
 
+```bash
 docker run -d -p 8081:80 \
 -v $(pwd)/site:/usr/share/nginx/html \
 nginx:alpine
+```
 
 변경 전
+```bash
 curl http://localhost:8081
+```
 
 결과
+```bash
 <h1>Hello Docker</h1>
+```
 
 파일 수정
+```bash
 echo "<h1>Changed</h1>" > site/index.html
 cat site/index.html
+```
 
 결과
+```bash
 <h1>Changed</h1>
+```
 
 변경 후
+```bash
 curl http://localhost:8081
+```
 
 결과
+```bash
 <h1>Changed</h1>
+```
 
 ---
 
 ## 11. Docker 볼륨 (영속성)
+
+볼륨 생성
+```bash
 docker volume create mydata
+```
 
 데이터 생성
+```bash
 docker run -d --name vol-test -v mydata:/data ubuntu sleep infinity
 docker exec vol-test bash -c "echo hello > /data/file.txt"
 docker exec vol-test cat /data/file.txt
+```
 
 결과
+```bash
 hello
+```
 
 컨테이너 삭제
+```bash
 docker rm -f vol-test
+```
 
 데이터 유지 확인
+```bash
 docker run -d --name vol-test2 -v mydata:/data ubuntu sleep infinity
 docker exec vol-test2 cat /data/file.txt
 
-결과:
-hello
+```
 
+결과:
+```bash
+hello
+```
 ---
 
-## 12. Git 설정 및 Github 연
+## 12. Git 설정 및 Github 연동
+
+```bash
 git config --global user.name "yourname"
 git config --global user.email "your@email.com"
 git config --list
 
+```
+
 결과:
 
+```bash
 credential.helper=osxkeychain
 user.name=yourname
 user.email=your@email.com
+```
+GitHub 저장소 생성 및 연결 완료
 
 ---
 

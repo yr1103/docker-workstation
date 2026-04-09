@@ -16,7 +16,10 @@ git --version
 ```
 결과:
 
-(여기에 직접 실행 결과 복붙)
+```text
+Docker version 29.3.1, build c2be9cc
+git version 2.43.0
+```
 
 ## 3. 수행 체크리스트
 [o] 터미널 기본 조작
@@ -42,7 +45,7 @@ cat test.txt
 
 결과:
 
-(출력 결과 복붙)
+
 
 권한 변경
 ls -l test.txt

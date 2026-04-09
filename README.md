@@ -21,6 +21,8 @@ Docker version 28.5.2, build ecc6942
 git version 2.53.0
 ```
 
+---
+
 ## 3. 수행 체크리스트
 
 [o] 터미널 기본 조작  
@@ -42,6 +44,8 @@ git version 2.53.0
 [o] 볼륨 영속성
 
 [o] Git/GitHub 연동
+
+---
 
 ## 4. 터미널 조작 로그
 
@@ -108,6 +112,7 @@ ls -l test.txt
 ## 변경 후
 -rwxr-xr-x  1 youngrae11032045  youngrae11032045  6  4  9 15:53 test.txt
 ```
+---
 
 ## 5. Docker 설치 및 점검
 
@@ -216,6 +221,7 @@ Server:
 
 WARNING: DOCKER_INSECURE_NO_IPTABLES_RAW is set
 ```
+---
 
 ## 6. Docker 기본 운영 명령
 
@@ -231,7 +237,7 @@ docker stats
 ```bash
 (출력 복붙)
 ```
-
+---
 
 ## 7. 컨테이너 실행
 
@@ -245,6 +251,8 @@ docker run -it ubuntu bash
 ls
 echo "inside container"
 exit
+
+---
 
 ## 8. Dockerfile 기반 웹 서버
 
@@ -263,6 +271,8 @@ docker build -t my-web .
 실행
 docker run -d -p 8080:80 --name my-web-container my-web
 
+---
+
 ## 9. 포트 매핑 검증
 curl http://localhost:8080
 
@@ -273,6 +283,8 @@ Hello Docker
 또는 브라우저 접속:
 
 http://localhost:8080
+
+---
 
 ## 10. 바인드 마운트
 
@@ -288,6 +300,8 @@ echo "<h1>Changed</h1>" > site/index.html
 
 변경 후
 curl http://localhost:8081
+
+---
 
 ## 11. Docker 볼륨 (영속성)
 docker volume create mydata
@@ -308,10 +322,14 @@ docker exec vol-test2 cat /data/file.txt
 
 hello
 
+---
+
 ## 12. Git 설정
 git config --global user.name "yourname"
 git config --global user.email "you@example.com"
 git config --list
+
+---
 
 ## 13. 트러블슈팅
 

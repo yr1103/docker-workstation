@@ -428,14 +428,9 @@ curl http://localhost:8080
 결과:
 
 ```bash
-Hello Docker
+<h1>Hello Docker</h1>
 ```
 
-또는 브라우저 접속:
-
-```bash
-http://localhost:8080
-```
 ---
 
 ## 10. 바인드 마운트
@@ -480,6 +475,12 @@ hello
 git config --global user.name "yourname"
 git config --global user.email "you@example.com"
 git config --list
+
+결과:
+
+credential.helper=osxkeychain
+user.name=youngrae
+user.email=you@example.com
 
 ---
 

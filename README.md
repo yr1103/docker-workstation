@@ -536,28 +536,44 @@ GitHub 저장소 생성 및 연결 완료
 ## 13. 트러블슈팅
 
 문제 1: Docker Hub 이미지 다운로드 실패
+
 문제: docker build 실행 시 lookup auth.docker.io: no such host 오류 발생
+
 원인 가설: DNS 또는 네트워크 문제로 Docker Hub 접근 실패
+
 확인: docker pull nginx:alpine 실행 시 동일 오류 발생 확인
+
 해결/대안: 네트워크 재연결 및 Docker 재시작 후 정상 동작
 
 문제 2: docker build 실패
+
 문제: docker build -t my-web 실행 시 오류 발생
+
 원인 가설: build context(.)를 지정하지 않아 Dockerfile 위치 인식 실패
+
 확인: 에러 메시지에서 argument 부족 확인
+
 해결/대안: docker build -t my-web .로 수정하여 해결
 
 
 ## 14. 검증 방법
 
 Docker 설치 확인: docker --version, docker info
+
 컨테이너/이미지 상태 확인: docker images, docker ps -a
+
 로그 확인: docker logs
+
 리소스 확인: docker stats --no-stream
+
 포트 매핑 확인: curl http://localhost:8080
+
 바인드 마운트 확인: 파일 수정 전/후 비교
+
 볼륨 영속성 확인: 컨테이너 삭제 전/후 데이터 비교
+
 Git 설정 확인: git config --list
+
 GitHub 연동 확인: push 및 저장소 확인
 
 ## 15. 개념 및 설계 설명
@@ -570,10 +586,12 @@ GitHub 연동 확인: push 및 저장소 확인
 
 - `docker-practice/`
   - `site/` → 웹 서버에서 사용할 HTML 파일
+    
   - `Dockerfile` → 이미지 빌드 정의
 
 설계 기준:
 - 웹 리소스와 Docker 설정을 분리하여 관리
+- 
 - Dockerfile 기준 상대 경로 COPY를 사용하기 위해 동일 디렉토리에 배치
 
 ---
@@ -587,6 +605,7 @@ docker run -d -p 8080:80 my-web
 설명:
 
 -컨테이너 내부 80번 포트를 호스트 8080번 포트로 연결
+
 -브라우저에서 localhost:8080으로 접근 가능
 
 바인드 마운트:
@@ -596,6 +615,7 @@ docker run -d -p 8080:80 my-web
 
 설명:
 -호스트 파일 변경 시 컨테이너에 즉시 반영
+
 -개발 환경에서 실시간 수정 가능
 
 ```bash
@@ -603,4 +623,5 @@ docker volume create mydata
 ```
 설명:
 -컨테이너 삭제 후에도 데이터 유지
+
 -영속성 보장

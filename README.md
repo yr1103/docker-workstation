@@ -223,7 +223,7 @@ docker build -t my-web:1.0 .
 ```bash
 docker run -d -p 8080:80 --name my-web my-web:1.0
 ```
-
+컨테이너 아이디 확인 가능
 ---
 
 ## 11. 포트 매핑 검증

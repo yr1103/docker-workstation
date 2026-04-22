@@ -86,6 +86,14 @@ ls -l test.txt
 mkdir dir_test
 chmod 755 dir_test
 ls -ld dir_test
+
+ls -l test.txt
+chmod 600 test.txt
+ls -l test.txt
+
+mkdir dir_test
+chmod 700 dir_test
+ls -ld dir_test
 ```
 
 ### 권한 설명

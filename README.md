@@ -152,13 +152,14 @@ docker ps -a
 docker logs <container_id>
 docker stats
 ```
+이미지/컨테이너 정리 확인
 ```bash
 docker stop <container_name>
 docker rm <container_name>
 docker rmi <image_name>
 docker images
 ```
-이미지/컨테이너 정리 확인
+
 
 ---
 

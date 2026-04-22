@@ -174,6 +174,23 @@ ls
 echo "hello"
 exit
 ```
+다시 실행 후 진입
+```bash
+docker start ubuntu
+docker exec -it ubuntu bash
+```
+
+attach / exec 차이
+
+attach: 현재 실행 중인 메인 프로세스에 붙음
+exec: 이미 실행 중인 컨테이너 안에서 새 명령을 실행
+
+exec -it <컨테이너> bash를 많이 사용
+
+종료/유지 차이
+메인 프로세스가 끝나면 컨테이너는 종료됨
+그래서 ubuntu bash는 bash를 종료하면 컨테이너도 멈춤
+반면 sleep infinity 같은 명령으로 띄우면 계속 살아 있음
 
 ---
 

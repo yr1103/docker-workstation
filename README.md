@@ -20,8 +20,8 @@
 * OS: macOS
 * Shell: zsh
 * Terminal: macOS Terminal
-* Docker: (작성 시 입력)
-* Git: (작성 시 입력)
+* Docker: Docker version 28.5.2
+* Git: git version 2.53.0
 * Container Engine: OrbStack
 
 ---
